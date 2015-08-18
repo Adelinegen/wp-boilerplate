@@ -23,6 +23,7 @@ var concat = require('gulp-concat'),
     gulpIf = require('gulp-if'),
     gutil = require('gulp-util'),
     iconfont = require('gulp-iconfont'),
+    imageResize = require('gulp-image-resize'),
     less = require('gulp-less'),
     minifyCss = require('gulp-minify-css'),
     rename = require('gulp-rename'),
@@ -264,6 +265,20 @@ gulp.task('app/scripts', function() {
 
     return loopTransformers(Object.keys(scripts), function(name) {
         return scriptsTransformer(name, scripts[name], false);
+    });
+});
+
+gulp.task('app/favicons', function(done) {
+    var size = [16, 32, 57, 60, 72, 76, 96, 114, 120, 144, 152, 180, 192];
+    size.forEach(function(size){
+        gulp.src(path.theme(paths.src.app.favicons))
+            .pipe(imageResize({ 
+              width : size,
+              height : size,
+              crop : true,
+              upscale : false
+            }))
+            .pipe(gulp.dest(path.theme(paths.dest.images)));
     });
 });
 
