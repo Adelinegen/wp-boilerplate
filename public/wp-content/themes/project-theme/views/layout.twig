@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="{{ 'vendor.css'|asset('vendor') }}">
     <link rel="stylesheet" href="{{ 'app.css'|asset('app') }}">
+    {% include 'ie8-support/stylesheet.twig' %}
 
     <!-- For IE 9 and below. -->
     <!--[if IE]><link rel="shortcut icon" href="{{ 'images/favicons-32.png'|asset('images') }}" sizes="32x32"><![endif]-->
@@ -36,17 +37,17 @@
     <meta name="msapplication-TileImage" content="{{ 'images/favicons-144.png'|asset('images') }}"/>
     <meta name="msapplication-TileColor" content="#ffffff"/>
     <meta name="theme-color" content="#ffffff">
-
 </head>
 <body>
+    {% include 'ie8-support/body.twig' %}
 
     {% block content %}{% endblock %}
 
     {{ wp_footer }}
 
+    {% include 'ie8-support/script.twig' %}
     {# If you add dependencies in the vendor scripts, uncomment the line below. #}
     {# <script src="{{ 'vendor.js'|asset('vendor') }}"></script> #}
     <script src="{{ 'app.js'|asset('app') }}"></script>
-
 </body>
 </html>

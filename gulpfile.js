@@ -76,7 +76,7 @@ path.relativePrepend = function(paths) {
     };
 
     if (Array.isArray(paths)) {
-        return paths.map(replaceThemePath);
+        return paths.map(prepend);
     } else {
         return prepend(paths);
     }
