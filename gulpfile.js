@@ -221,7 +221,7 @@ function scriptsTransformer(name, src, isVendor) {
 gulp.task('default', ['common', 'vendor', 'app']);
 gulp.task('common', ['common/copy']);
 gulp.task('vendor', ['vendor/stylesheets', 'vendor/scripts']);
-gulp.task('app', ['app/icons', 'app/sprites', 'app/stylesheets', 'app/scripts', 'app/favicons']);
+gulp.task('app', ['app/icons', 'app/sprites', 'app/stylesheets', 'app/scripts']);
 
 gulp.task('clean', function(cb) {
     del(path.theme(paths.clean), cb);
@@ -277,7 +277,8 @@ gulp.task('app/favicons', function(done) {
                 height : size,
                 crop : true,
                 upscale : false,
-                format : 'png'
+                format : 'png',
+                imageMagick : true
             }))
             .pipe(rename(function (path) { path.basename = "favicons-" + size; }))
             .pipe(gulp.dest(path.theme(paths.dest.images)));
