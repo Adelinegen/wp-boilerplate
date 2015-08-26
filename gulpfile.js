@@ -221,7 +221,7 @@ function scriptsTransformer(name, src, isVendor) {
 gulp.task('default', ['common', 'vendor', 'app']);
 gulp.task('common', ['common/copy']);
 gulp.task('vendor', ['vendor/stylesheets', 'vendor/scripts']);
-gulp.task('app', ['app/icons', 'app/sprites', 'app/stylesheets', 'app/scripts']);
+gulp.task('app', ['app/icons', 'app/sprites', 'app/stylesheets', 'app/scripts', 'app/favicons']);
 
 gulp.task('clean', function(cb) {
     del(path.theme(paths.clean), cb);
@@ -269,15 +269,17 @@ gulp.task('app/scripts', function() {
 });
 
 gulp.task('app/favicons', function(done) {
-    var size = [16, 32, 57, 60, 72, 76, 96, 114, 120, 144, 152, 180, 192];
-    size.forEach(function(size){
-        gulp.src(path.theme(paths.src.app.favicons))
+    var size = [32, 57, 72, 76, 114, 120, 144, 152, 180, 192];
+    return size.map(function(size){
+        return gulp.src(path.theme(paths.src.app.favicons))
             .pipe(imageResize({ 
-              width : size,
-              height : size,
-              crop : true,
-              upscale : false
+                width : size,
+                height : size,
+                crop : true,
+                upscale : false,
+                format : 'png'
             }))
+            .pipe(rename(function (path) { path.basename = "favicons-" + size; }))
             .pipe(gulp.dest(path.theme(paths.dest.images)));
     });
 });
