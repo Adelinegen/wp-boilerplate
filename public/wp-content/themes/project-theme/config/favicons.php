@@ -19,26 +19,29 @@ function link_favicon() {
     $pos_point = strrpos($favicon, '.');
     $faviconUrl = substr($favicon, 0, $pos_point);
 
-    echo "<!-- For IE 9 and below. -->\n\r".
-         "<!--[if IE]><link rel=\"shortcut icon\" href=\"".$faviconUrl."-32x32.".$faviconExtension."\" sizes=\"32x32\"><![endif]-->\n\r".
-         "<!-- iPad retina icon -->\n\r".
-         "<link rel=\"apple-touch-icon-precomposed\" href=\"".$faviconUrl."-152x152.".$faviconExtension."\" sizes=\"152x152\">\n\r".
-         "<!-- iPad retina icon (iOS < 7) -->\n\r".
-         "<link rel=\"apple-touch-icon-precomposed\" href=\"".$faviconUrl."-144x144.".$faviconExtension."\" sizes=\"144x144\">\n\r".
-         "<!-- iPad non-retina icon -->\n\r".
-         "<link rel=\"apple-touch-icon-precomposed\" href=\"".$faviconUrl."-76x76.".$faviconExtension."\" sizes=\"76x76\">\n\r".
-         "<!-- iPad non-retina icon (iOS < 7) -->\n\r".
-         "<link rel=\"apple-touch-icon-precomposed\" href=\"".$faviconUrl."-72x72.".$faviconExtension."\" sizes=\"72x72\">\n\r".
-         "<!-- iPhone 6 Plus icon -->\n\r".
-         "<link rel=\"apple-touch-icon-precomposed\" href=\"".$faviconUrl."-120x120.".$faviconExtension."\" sizes=\"120x120\">\n\r".
-         "<!-- iPhone retina icon (iOS < 7) -->\n\r".
-         "<link rel=\"apple-touch-icon-precomposed\" href=\"".$faviconUrl."-114x114.".$faviconExtension."\" sizes=\"114x114\">\n\r".
-         "<!-- iPhone non-retina icon (iOS < 7) -->\n\r".
-         "<link rel=\"apple-touch-icon-precomposed\" href=\"".$faviconUrl."-57x57.".$faviconExtension."\" sizes=\"57x57\">\n\r".
-         "<!-- Windows 8 -->\n\r".
-         "<meta name=\"msapplication-TileImage\" content=\"".$faviconUrl."-144x144.".$faviconExtension."\"/>\n\r".
-         "<meta name=\"msapplication-TileColor\" content=\"#ffffff\"/>\n\r".
-         "<meta name=\"theme-color\" content=\"#ffffff\">\n\r";
+echo <<<HTML
+<!-- For IE 9 and below. -->
+<!--[if IE]><link rel="shortcut icon" href="$faviconUrl-32x32.$faviconExtension" sizes="32x32"><![endif]-->
+<!-- iPad retina icon -->
+<link rel="apple-touch-icon-precomposed" href="$faviconUrl-152x152.$faviconExtension" sizes="152x152">
+<!-- iPad retina icon (iOS < 7) -->
+<link rel="apple-touch-icon-precomposed" href="$faviconUrl-144x144.$faviconExtension" sizes="144x144">
+<!-- iPad non-retina icon -->
+<link rel="apple-touch-icon-precomposed" href="$faviconUrl-76x76.$faviconExtension" sizes="76x76">
+<!-- iPad non-retina icon (iOS < 7) -->
+<link rel="apple-touch-icon-precomposed" href="$faviconUrl-72x72.$faviconExtension" sizes="72x72">
+<!-- iPhone 6 Plus icon -->
+<link rel="apple-touch-icon-precomposed" href="$faviconUrl-120x120.$faviconExtension" sizes="120x120">
+<!-- iPhone retina icon (iOS < 7) -->
+<link rel="apple-touch-icon-precomposed" href="$faviconUrl-114x114.$faviconExtension" sizes="114x114">
+<!-- iPhone non-retina icon (iOS < 7) -->
+<link rel="apple-touch-icon-precomposed" href="$faviconUrl-57x57.$faviconExtension" sizes="57x57">
+<!-- Windows 8 -->
+<meta name="msapplication-TileImage" content="$faviconUrl-144x144.$faviconExtension"/>
+<meta name="msapplication-TileColor" content="#ffffff"/>
+<meta name="theme-color" content="#ffffff">
+
+HTML;
 }
 
 add_action('wp_head', 'link_favicon');
