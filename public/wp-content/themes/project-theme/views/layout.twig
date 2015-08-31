@@ -9,34 +9,6 @@
     <link rel="stylesheet" href="{{ 'vendor.css'|asset('vendor') }}">
     <link rel="stylesheet" href="{{ 'app.css'|asset('app') }}">
     {% include 'ie8-support/stylesheet.twig' %}
-
-    <!-- For IE 9 and below. -->
-    <!--[if IE]><link rel="shortcut icon" href="{{ 'images/favicons-32.png'|asset('images') }}" sizes="32x32"><![endif]-->
-
-    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. -->
-    <link rel="icon" href="{{ 'images/favicons-192.png'|asset('images') }}" sizes="192x192">
-
-    <!-- Touch Icons - iOS and Android 2.1+ --> 
-    <link rel="apple-touch-icon-precomposed" href="{{ 'images/favicons-180.png'|asset('images') }}" sizes="180x180">
-     <!-- iPad retina icon -->
-    <link rel="apple-touch-icon-precomposed" href="{{ 'images/favicons-152.png'|asset('images') }}" sizes="152x152">
-    <!-- iPad retina icon (iOS < 7) -->
-    <link rel="apple-touch-icon-precomposed" href="{{ 'images/favicons-144.png'|asset('images') }}" sizes="144x144">
-    <!-- iPad non-retina icon -->
-    <link rel="apple-touch-icon-precomposed" href="{{ 'images/favicons-76.png'|asset('images') }}" sizes="76x76">
-    <!-- iPad non-retina icon (iOS < 7) -->
-    <link rel="apple-touch-icon-precomposed" href="{{ 'images/favicons-72.png'|asset('images') }}" sizes="72x72">
-    <!-- iPhone 6 Plus icon -->
-    <link rel="apple-touch-icon-precomposed" href="{{ 'images/favicons-120.png'|asset('images') }}" sizes="120x120">
-    <!-- iPhone retina icon (iOS < 7) -->
-    <link rel="apple-touch-icon-precomposed" href="{{ 'images/favicons-114.png'|asset('images') }}" sizes="114x114">
-    <!-- iPhone non-retina icon (iOS < 7) -->
-    <link rel="apple-touch-icon-precomposed" href="{{ 'images/favicons-57.png'|asset('images') }}" sizes="57x57">
-
-    <!-- Windows 8 -->
-    <meta name="msapplication-TileImage" content="{{ 'images/favicons-144.png'|asset('images') }}"/>
-    <meta name="msapplication-TileColor" content="#ffffff"/>
-    <meta name="theme-color" content="#ffffff">
 </head>
 <body>
     {% include 'ie8-support/body.twig' %}

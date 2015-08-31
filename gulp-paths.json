@@ -14,8 +14,6 @@
 
             "sprites": {},
 
-            "favicons": "%theme_path%/app/favicons/*",
-
             "stylesheets": "%theme_path%/app/stylesheets/*.less",
 
             "scripts": {

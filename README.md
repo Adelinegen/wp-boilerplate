@@ -20,7 +20,6 @@ Required dependencies:
 Optional __but recommended__ dependencies:
 
 * [Composer](https://getcomposer.org/)
-* [imagemagick](http://www.imagemagick.org/) (Only for favicons)
 
 ### Quick setup for OS X users
 
