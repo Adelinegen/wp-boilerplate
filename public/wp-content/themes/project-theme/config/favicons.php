@@ -1,23 +1,21 @@
 <?php
 
 // Change site favicon sizes
-function filter_site_icon_image_sizes($site_icon_sizes) {
+add_filter('site_icon_image_sizes', function ($site_icon_sizes) {
     $site_icon_sizes = [32, 57, 72, 76, 114, 120, 144, 152, 180, 192];
     return $site_icon_sizes;
-};
-
-add_filter('site_icon_image_sizes', 'filter_site_icon_image_sizes', 10, 1);
+}, 10, 1);
 
 // add favicon link
-function link_favicon() {
+add_action('wp_head', function() {
     // Url of the favicon
     $favicon = get_site_icon_url();
     // Extension of the picture
-    $partUrl = explode(".", $favicon);
+    $partUrl = explode('.', $favicon);
     $faviconExtension = array_pop($partUrl);
     // Beginning of the URL favicon picture
-    $pos_point = strrpos($favicon, '.');
-    $faviconUrl = substr($favicon, 0, $pos_point);
+    $posPoint = strrpos($favicon, '.');
+    $faviconUrl = substr($favicon, 0, $posPoint);
 
     echo <<<HTML
         <!-- For IE 9 and below. -->
@@ -42,6 +40,4 @@ function link_favicon() {
         <meta name="theme-color" content="#ffffff">
 
 HTML;
-}
-
-add_action('wp_head', 'link_favicon');
+});
